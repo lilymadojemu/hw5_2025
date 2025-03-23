@@ -122,11 +122,11 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
 /* Prefers-reduced-motion: Experiencing problem where this media query is overriding the original animation element even when not enabled on my system */
 /* turning off animation when user has reduce motion enabled */
 
-/* @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
     #logo {
       animation: none;
     }
-} */
+}
 
 /* Customize screen for when printing the webpage */
 @media print { 
