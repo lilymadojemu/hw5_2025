@@ -125,12 +125,15 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
 @media screen and (prefers-reduced-motion: reduce) {
     /* stop the keyframes */
     #logo {
-        animation: none ;
+        animation: none;
     }
 }
 
 /* Customize screen for when printing the webpage */
 @media print { 
+    #logo {
+        animation: none;
+    }
     body{
         /* change font to Arial with Helvetica as backup */
         font-family: Arial, Helvetica;
@@ -139,9 +142,10 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
     }
 
     /* Edited the nav/nav_links elements so that they are spaced according to the example */
-    nav {
+    nav ul{
         display: flex;
-        gap: 100px;
+        gap: 200px; 
+    
     }
     .nav_links{
         flex-direction: row;
@@ -161,6 +165,7 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
     #gallery, .gallery {
         display: none;
     }
+
     /* adding emoji to the cards
     Reference: https://dev.to/beumsk/how-to-add-emoji-s-in-your-website-using-html-css-or-javascript-4g6g */
     .card ul > li:nth-child(2)::after {
