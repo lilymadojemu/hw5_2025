@@ -109,7 +109,6 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
     }
 
     .card:nth-child(2) {
-        /* flex-grow: 1; */
         align-self: stretch;
     }
 
@@ -121,11 +120,9 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
 
 }
 
-/* Stops animation for users who prefer reduced motion */
-@media screen and (prefers-reduced-motion: reduce) {
-    /* stop the keyframes */
+@media (prefers-reduced-motion: reduce) {
     #logo {
-        animation: none;
+      animation: none;
     }
 }
 
@@ -145,16 +142,16 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
     nav ul{
         display: flex;
         gap: 200px; 
-    
     }
+
     .nav_links{
         flex-direction: row;
     }
-
-    /* aligning cards to the bottom */
+    /* aligning cards to the bottom with header*/
     .pricing{
         flex-flow: nowrap;
-
+        /* creating space between cards and footer like example */
+        padding-bottom: 10%;
     }
     .card {
         border: solid 2px #45ADDD;
@@ -171,5 +168,4 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
     .card ul > li:nth-child(2)::after {
         content: '👍';
     }
-
 }
