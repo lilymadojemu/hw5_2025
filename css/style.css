@@ -1,10 +1,15 @@
 
-/* Step 1 Key frames */
-@keyframes logo {
+/* Step 1 Creating Key frames for logo animation
+Reference https://www.w3schools.com/cssref/atrule_keyframes.php */
+@keyframes logoAnimation {
     0%   {width: 25px; opacity: 0;}
     100% {width:475px; opacity: 1;}
-  }
+}
 
+/* Applying animation keyframes to the logo */
+#logo {
+    animation: logoAnimation 5s forwards;
+}
 /* step 2  
 Using the Poppins font (using Google fonts) with serif as a backup.  
 Using “concrete_seamless.png” as a background-image with backup background color of #f1f1f1.*/
