@@ -10,6 +10,7 @@ Reference https://www.w3schools.com/cssref/atrule_keyframes.php */
 #logo {
     animation: logoAnimation 5s forwards;
 }
+
 /* step 2  
 Using the Poppins font (using Google fonts) with serif as a backup.  
 Using “concrete_seamless.png” as a background-image with backup background color of #f1f1f1.*/
@@ -34,25 +35,29 @@ Editing nav_links class to use flex to match our example. */
     flex-direction: column;
 }
 /* step 5 Styling the links so that they have the same color even after they have been visited. */
-a {
+a:link, a:visited {
     color:blue;
 }
 
 /* step 6 Styling ONLY header elements that are direct children of a card class */
 
-.card > header {
+.card > header{
     background-color: #288088;
     border: 2px solid #45ADAD;
     padding-top: 20px;
     padding-bottom: 20px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+
 }
 
 /* Step 7 
 Edited the css for the card class to match example using a flex-basis to specify an initial “size” of 450px.*/
 .card{
     flex-basis:450px;
+    /* fixing rounded areas */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
 /* Step 8 
@@ -63,8 +68,7 @@ Edited the css for the pricing class to match example by using flex and centerin
     justify-content: center;
 }
 /* step 9
-Styling the images in the gallery class.  
-*/
+Styling the images in the gallery class.  */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
@@ -93,16 +97,22 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
     /* step 12 Edit the css for the pricing and card classes to match our example. Part of achieving this is by using a flex-property to specify a “size” of 275px. Notice that the elements do not have the same height, but do have the same width. */
 
     .pricing {
-        flex-flow: nowrap;
+        display: flex;  
+        /* has card be in a row */
+        flex-flow: nowrap;    
     }
 
     .card {
+        /* establishes size as 275px using flex-basis */
         flex-basis: 275px;
+        align-self: flex-start; 
     }
-    /* make bigger */
+
     .card:nth-child(2) {
-        flex-basis: 275px;
+        /* flex-grow: 1; */
+        align-self: stretch;
     }
+
     /* Step 13 Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. Make sure that it is always visible.  */
     body > header {
         position: sticky;
@@ -112,8 +122,11 @@ Edited the css for the gallery class to use flex to match  example using flex-wr
 }
 
 /* Stops animation for users who prefer reduced motion */
-@media (prefers-reduced-motion) {
+@media screen and (prefers-reduced-motion: reduce) {
     /* stop the keyframes */
+    #logo {
+        animation: none ;
+    }
 }
 
 /* Customize screen for when printing the webpage */
