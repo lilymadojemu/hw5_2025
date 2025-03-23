@@ -1,0 +1,152 @@
+
+/* Step 1 Key frames */
+@keyframes logo {
+    0%   {width: 25px; opacity: 0;}
+    100% {width:475px; opacity: 1;}
+  }
+
+/* step 2  
+Using the Poppins font (using Google fonts) with serif as a backup.  
+Using “concrete_seamless.png” as a background-image with backup background color of #f1f1f1.*/
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* step 3 
+Editing the all instances of header tag to use flex to match example. */
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Step 4 
+Editing nav_links class to use flex to match our example. */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+/* step 5 Styling the links so that they have the same color even after they have been visited. */
+a {
+    color:blue;
+}
+
+/* step 6 Styling ONLY header elements that are direct children of a card class */
+
+.card > header {
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7 
+Edited the css for the card class to match example using a flex-basis to specify an initial “size” of 450px.*/
+.card{
+    flex-basis:450px;
+}
+
+/* Step 8 
+Edited the css for the pricing class to match example by using flex and centering the cards both horizontally and vertically*/
+.pricing{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+/* step 9
+Styling the images in the gallery class.  
+*/
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+/* step 10
+Edited the css for the gallery class to use flex to match  example using flex-wrap and justify content to centering the elements */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* When the screen is more than 900 pixels */
+@media screen and (min-width: 900px) {
+    /* step 11 Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties.  */
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links {
+        flex-direction: row;
+    }
+        
+    /* step 12 Edit the css for the pricing and card classes to match our example. Part of achieving this is by using a flex-property to specify a “size” of 275px. Notice that the elements do not have the same height, but do have the same width. */
+
+    .pricing {
+        flex-flow: nowrap;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+    /* make bigger */
+    .card:nth-child(2) {
+        flex-basis: 275px;
+    }
+    /* Step 13 Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. Make sure that it is always visible.  */
+    body > header {
+        position: sticky;
+        top: 0;
+    }
+
+}
+
+/* Stops animation for users who prefer reduced motion */
+@media (prefers-reduced-motion) {
+    /* stop the keyframes */
+}
+
+/* Customize screen for when printing the webpage */
+@media print { 
+    body{
+        /* change font to Arial with Helvetica as backup */
+        font-family: Arial, Helvetica;
+        /* removes background image */
+        background-image: none;
+    }
+
+    /* Edited the nav/nav_links elements so that they are spaced according to the example */
+    nav {
+        display: flex;
+        gap: 100px;
+    }
+    .nav_links{
+        flex-direction: row;
+    }
+
+    /* aligning cards to the bottom */
+    .pricing{
+        flex-flow: nowrap;
+
+    }
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* remove gallery from view */
+    #gallery, .gallery {
+        display: none;
+    }
+    /* adding emoji to the cards
+    Reference: https://dev.to/beumsk/how-to-add-emoji-s-in-your-website-using-html-css-or-javascript-4g6g */
+    .card ul > li:nth-child(2)::after {
+        content: '👍';
+    }
+
+}
